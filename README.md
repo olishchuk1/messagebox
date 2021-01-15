@@ -1,2 +1,3 @@
-# messagebox
-Messenger implemented with python
+# MessageBox
+Messenger implemented with Python
+
