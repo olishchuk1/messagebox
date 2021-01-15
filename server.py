@@ -19,6 +19,17 @@ db = [
 ]
 
 
+def get_number_of_messages():
+    return len(db)
+
+
+def get_number_of_senders():
+    sender_set = set()
+    for message in db:
+        sender_set.add(message['name'])
+    return len(sender_set)
+
+
 @app.route("/")
 def messagebox_hello():
     return 'Hi, there! \nIt\'s MessageBox'
@@ -26,7 +37,8 @@ def messagebox_hello():
 
 @app.route("/status")
 def status():
-    return json.dumps({'status': True, 'name': 'MessageBox', 'time': str(time.time())})
+    return json.dumps({'status': True, 'name': 'MessageBox', 'time': str(time.time()),
+                       'senders': str(get_number_of_senders()), 'messages': str(get_number_of_messages())})
 
 
 @app.route("/send", methods=['POST'])

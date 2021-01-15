@@ -2,14 +2,14 @@ from datetime import datetime
 
 db = [
     {
-        'text': 'Привет',
+        'text': 'Hi there!',
         'time': datetime.now(),
-        'name': 'Nick'
+        'name': 'Alice'
     },
     {
-        'text': 'Привет, Nick',
+        'text': 'Hey, sup?',
         'time': datetime.now(),
-        'name': 'Jane'
+        'name': 'Bob'
     }
 ]
 
@@ -41,12 +41,12 @@ def get_messages(after):
 
 
 if __name__ == '__main__':
-    send_message('Nick', 'Привет')
+    send_message('Alice', 'Hello')
 
     messages = get_messages(datetime.min)
     print_messages(messages)
 
-    send_message('Nick', 'Привет2')
+    send_message('Bob', 'We have a problem!')
 
     messages = get_messages(messages[-1]['time'])
     print_messages(messages)
